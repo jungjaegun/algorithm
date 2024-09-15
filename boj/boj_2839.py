@@ -21,9 +21,11 @@ def greedy(sugar):
         print(-1)
 
 def bruteforce(sugar):
-    # 5kg 봉지를 가장 많이 사용해본다
-    min_count = float('inf')
-    for five_count in range(sugar // 5 + 1): # 21인 경우 0부터 4까지
+
+    # 5kg 봉지를 하나씩 늘려가고 남은 무게를 3kg 봉지를 했을 때 최소 봉지 수를 계속 검사해보기
+    min_count = float('inf') # 정답 변수 : 최솟값 구하는 거니까 가장 큰 값을 첫번쨰 변수로 설정
+
+    for five_count in range((sugar // 5) + 1): # 0개부터 5개가 가능한 최대 수까지
         remain_sugar = sugar - (5 * five_count)
         if remain_sugar % 3 == 0:
             three_count = remain_sugar // 3
