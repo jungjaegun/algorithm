@@ -1,23 +1,21 @@
-import sys
 import math
+
+import sys
 input = sys.stdin.readline
 
 T = int(input())
 
-# 최대공약수 구하는 공식 = math.gcd
-def gcd(a, b):
-    while b != 0:
-        r = a % b
-        a = b
-        b = r
+def solution_1(T):
+    for _ in range(T):
+        A, B = map(int, input().split())
+        print(math.lcm(A, B))
 
-    return a
+# solution_1(T)
 
-# 최대공약수 함수를 통해 최소공배수를 구하는 공식
-def lcm(a, b):
-    return int((a * b) / gcd(a, b))
+# 최소공배수 = A * B / 최대공약수(math.gcd)
+def solution_2(T):
+    for _ in range(T):
+        A, B = map(int, input().split())
+        print(int(A * B // math.gcd(A, B)))
 
-for _ in range(T):
-    A, B = map(int, input().split())
-    print(lcm(A, B))
-
+solution_2(T)
