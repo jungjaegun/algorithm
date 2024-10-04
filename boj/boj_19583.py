@@ -24,7 +24,7 @@ while True:
     if time <= start:
         entry_set.add(nickname)
 
-    if end <= time and time <= quit:
+    if end <= time <= quit:
         exit_set.add(nickname)
 
 result_set = entry_set & exit_set
